@@ -1,0 +1,7 @@
+{
+  "name": "appTG",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

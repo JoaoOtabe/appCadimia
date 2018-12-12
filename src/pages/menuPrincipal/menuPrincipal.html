@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+      <ion-buttons left>
+          <button ion-button icon-only (click) = "voltarHomePage()">
+              <ion-icon name="arrow-back"></ion-icon>
+              Voltar
+          </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="scroll-content">
+    <div class="logo">
+    </div>
+
+    <ion-slides (ionSlideDidChange)="slideChanged()">
+        <ion-slide>
+          <h1 class="telaPassar">Slide 1</h1>
+        </ion-slide>
+        <ion-slide>
+          <h1 class="telaPassar">Slide 2</h1>
+        </ion-slide>
+        <ion-slide>
+          <h1 class="telaPassar">Slide 3</h1>
+        </ion-slide>
+      </ion-slides>
+  
+    <br>
+    <button ion-button block color="secondary">Cadastre-se</button>
+
+
+</ion-content>
