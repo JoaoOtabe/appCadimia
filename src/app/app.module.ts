@@ -8,6 +8,9 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { cadastro } from '../pages/cadastro/cadastro';
 import { menuPrincipal } from '../pages/menuPrincipal/menuPrincipal';
+import { UsersProvider } from '../providers/users/users';
+
+import { HttpModule } from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import { menuPrincipal } from '../pages/menuPrincipal/menuPrincipal';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -30,7 +34,8 @@ import { menuPrincipal } from '../pages/menuPrincipal/menuPrincipal';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UsersProvider
   ]
 })
 export class AppModule {}

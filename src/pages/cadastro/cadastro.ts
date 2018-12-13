@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { NavController, Button } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { AlertController } from 'ionic-angular';
+import {ToastController} from 'ionic-angular';
+import {UsersProvider} from 'd:/nodeJS/appTG/src/providers/users/users';
+
 //import  { crud } from '../cadastro/crud';
 import 'rxjs/add/operator/map';
 import { Http } from '@angular/http';
@@ -17,15 +20,23 @@ import { Http } from '@angular/http';
 
 
 export class cadastro {
-
+  model: User;
   
-  constructor(public navCtrl: NavController, public alert:AlertController) {
-
+  constructor(public navCtrl: NavController, public alert:AlertController, 
+    private toast: ToastController, private userProvider: UsersProvider) {
+      this.model = new User();
+      
   }
 
+  createAcount(){
+    this.userProvider.createAccount(this.model.email,this.model.login, this.model.nome, this.model.senha)
+    .then((result: any) => {
+      this.toast.create({ message: "Usuário Criado com sucesso."})
+    })
+    .catch((error: any) => {
 
-
-  
+    })
+  }
 
   voltarHomePage(){
     this.navCtrl.setRoot(HomePage);
@@ -47,4 +58,11 @@ export class cadastro {
 
   
 
+}
+
+export class User{
+  nome:string;
+  email: string;
+  senha: string;
+  login: string;
 }
