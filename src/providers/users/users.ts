@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http'
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class UsersProvider {
   private API_URL = 'http://fichaonline.gearhostpreview.com/api/'
 
-  constructor(public http: HttpClient) {}
+  constructor(public http: Http) {}
     
   createAccount(nome:string, email: string, senha: string, login: string){
     return new Promise((resolve, reject) => {
       var data = {
-      email: email,
-      senha: senha,
-      nome: nome,
-      login: login
+        nome: nome,
+        login: login,
+        senha: senha,
+        email: email
       };
 
-    this.http.post(this.API_URL + 'Cadastro/aluno', data)
+      this.http.post(this.API_URL + 'Cadastro/aluno', data)
       .subscribe((result: any) => {
         resolve(result.json())
       },

@@ -6,8 +6,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { cadastro } from '../pages/cadastro/cadastro';
+import { CreateAccontPage } from '../pages/create-accont/create-accont';
 import { menuPrincipal } from '../pages/menuPrincipal/menuPrincipal';
+import {LoginPage} from '../pages/login/login';
 import { UsersProvider } from '../providers/users/users';
 
 import { HttpModule } from "@angular/http";
@@ -16,8 +17,9 @@ import { HttpModule } from "@angular/http";
   declarations: [
     MyApp,
     HomePage,
-    cadastro,
-    menuPrincipal
+    CreateAccontPage,
+    menuPrincipal,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -28,8 +30,9 @@ import { HttpModule } from "@angular/http";
   entryComponents: [
     MyApp,
     HomePage,
-    cadastro,
-    menuPrincipal
+    CreateAccontPage,
+    menuPrincipal,
+    LoginPage
   ],
   providers: [
     StatusBar,
