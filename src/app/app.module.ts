@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CreateAccontPage } from '../pages/create-accont/create-accont';
+import { UserListPage } from '../pages/user-list/user-list';
 import { menuPrincipal } from '../pages/menuPrincipal/menuPrincipal';
 import {LoginPage} from '../pages/login/login';
 import { UsersProvider } from '../providers/users/users';
@@ -19,7 +20,8 @@ import { HttpModule } from "@angular/http";
     HomePage,
     CreateAccontPage,
     menuPrincipal,
-    LoginPage
+    LoginPage,
+    UserListPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { HttpModule } from "@angular/http";
     HomePage,
     CreateAccontPage,
     menuPrincipal,
-    LoginPage
+    LoginPage,
+    UserListPage
   ],
   providers: [
     StatusBar,

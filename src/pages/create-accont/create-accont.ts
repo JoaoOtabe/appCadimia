@@ -22,7 +22,7 @@ export class CreateAccontPage {
   createAcount(){
     this.userProvider.createAccount(this.model.email,this.model.login, this.model.nome, this.model.senha)
     .then((result: any) => {
-      this.toast.create({ message: 'Usuário Criado com sucesso. Token: ' + result.token, position: 'botton', duration: 3000}).present();
+      this.toast.create({ message: 'Usuário Criado com sucesso.' ,position: 'botton', duration: 3000}).present();
       this.navCtrl.setRoot(HomePage);
     })
     .catch((error: any) => {

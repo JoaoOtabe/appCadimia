@@ -1,4 +1,6 @@
 import { UsersProvider } from './../../providers/users/users';
+import { HomePage } from '../home/home';
+import { UserListPage } from '../user-list/user-list';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 
@@ -19,19 +21,23 @@ export class LoginPage {
 
   }
 
-  login(){
-    this.userProvider.createAccount(this.model.email,this.model.login, this.model.nome, this.model.senha)
-    .then((result: any) => {
-      this.toast.create({ message: 'Usuário logado com sucesso. Token: ' + result.token, position: 'botton', duration: 3000}).present();
-      //this.navCtrl.setRoot(menuPrincipal);
-    })
-    .catch((error: any) => {
-      this.toast.create({ message: 'Erro ao logar o usuário. Erro: ' + error.error, position: 'botton', duration: 3000}).present();
-    })
+  login() {
+    this.userProvider.login(this.model.login, this.model.senha)
+      .then((result: any) => {
+        this.toast.create({ message: 'Usuário logado com sucesso. Token: ' + result.token, position: 'botton', duration: 3000 }).present();
+        this.listaDeAlunos();
+      })
+      .catch((error: any) => {
+        this.toast.create({ message: 'Erro ao efetuar login. Erro: ' + error.error, position: 'botton', duration: 3000 }).present();
+      });
   }
 
-  pageLogin(){
-    this.navCtrl.setRoot(LoginPage);
+  voltarHomePage(){
+    this.navCtrl.setRoot(HomePage);
+  }
+
+  listaDeAlunos(){
+    this.navCtrl.setRoot(UserListPage);
   }
 
   ionViewDidLoad() {

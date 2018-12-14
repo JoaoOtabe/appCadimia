@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http'
+import {ToastController} from 'ionic-angular';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class UsersProvider {
   private API_URL = 'http://fichaonline.gearhostpreview.com/api/'
 
-  constructor(public http: Http) {}
+  constructor(public http: Http, private toast: ToastController) {}
     
   createAccount(nome:string, email: string, senha: string, login: string){
     return new Promise((resolve, reject) => {
@@ -19,7 +20,8 @@ export class UsersProvider {
 
       this.http.post(this.API_URL + 'Cadastro/aluno', data)
       .subscribe((result: any) => {
-        resolve(result.json())
+        //this.toast.create({ message: 'Usuário Criado com sucesso.' ,position: 'botton', duration: 3000}).present();
+        resolve()
       },
       (error) => {
         reject(error.json());
@@ -36,6 +38,9 @@ export class UsersProvider {
 
     this.http.post(this.API_URL + 'Consulta/aluno_login', data)
       .subscribe((result: any) => {
+        
+        //console.log(JSON.stringify(result));
+        //resolve()
         resolve(result.json())
       },
       (error) => {
@@ -47,10 +52,11 @@ export class UsersProvider {
   getAllAlunos(page: number){
     return new Promise((resolve, reject) => {
 
-      let url = this.API_URL + 'users?per_page=10%page=' + page;
+      let url = this.API_URL + 'Consulta/aluno';
 
     this.http.get(url)
       .subscribe((result: any) => {
+       // console.log(result.json())
         resolve(result.json())
       },
       (error) => {
@@ -59,10 +65,10 @@ export class UsersProvider {
     });
   }
 
-  getAluno(id: number){
+  getAluno(id: string){
     return new Promise((resolve, reject) => {
 
-      let url = this.API_URL + 'users/' + id;
+      let url = this.API_URL + 'Consulta/aluno';
 
     this.http.get(url)
       .subscribe((result: any) => {
@@ -77,7 +83,7 @@ export class UsersProvider {
   insert(user: any){
     return new Promise((resolve, reject) => {
 
-      let url = this.API_URL + 'users';
+      let url = this.API_URL + 'Consulta/aluno_login';
 
     this.http.post(url, user)
       .subscribe((result: any) => {
@@ -92,7 +98,7 @@ export class UsersProvider {
   update(user: any){
     return new Promise((resolve, reject) => {
 
-      let url = this.API_URL + 'users/' + user.id;
+      let url = this.API_URL + 'Consulta/aluno_login/' + user.id;
       let data = {
         "first_name": user.first_name,
         "last_name": user.last_name
@@ -111,7 +117,7 @@ export class UsersProvider {
   remove(id: number){
     return new Promise((resolve, reject) => {
 
-      let url = this.API_URL + 'users/' + id;
+      let url = this.API_URL + 'Consulta/aluno_login/' + id;
 
     this.http.delete(url)
       .subscribe((result: any) => {
