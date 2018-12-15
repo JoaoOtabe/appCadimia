@@ -19,11 +19,11 @@ export class HomePage {
   }
 
 
-  pageLogin(){
+  pageLogin():void{
     this.navCtrl.setRoot(LoginPage);
   }
 
-  pagecadastro(){
+  pagecadastro():void{
     this.navCtrl.setRoot(CreateAccontPage);
   }
 }

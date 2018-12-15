@@ -36,7 +36,7 @@ export class CreateAccontPage {
 }
 
 export class User{
-  nome:string;
+  nome: string;
   email: string;
   senha: string;
   login: string;

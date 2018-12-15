@@ -44,12 +44,13 @@ export class UsersProvider {
         resolve(result.json())
       },
       (error) => {
-        reject(error.json());
+        reject();
       })
     });
   }
 
-  getAllAlunos(page: number){
+  //parametro seria o numero da academia porem não possuimos este campo ainda
+  getAllAlunos(){
     return new Promise((resolve, reject) => {
 
       let url = this.API_URL + 'Consulta/aluno';
@@ -65,29 +66,23 @@ export class UsersProvider {
     });
   }
 
-  getAluno(id: string){
+  getAluno(usu: any){
     return new Promise((resolve, reject) => {
 
-      let url = this.API_URL + 'Consulta/aluno';
+      //testar qual deve ser a consulta, pelo id ou pelo nome !!!
+      var data = {
+        "nome": usu.nome,
+        "senha": usu.senha,
+        "login": usu.login
+
+      }
+
+      let url = this.API_URL + 'Consulta/aluno/' + usu.login;
 
     this.http.get(url)
       .subscribe((result: any) => {
         resolve(result.json())
-      },
-      (error) => {
-        reject(error.json());
-      })
-    });
-  }
-
-  insert(user: any){
-    return new Promise((resolve, reject) => {
-
-      let url = this.API_URL + 'Consulta/aluno_login';
-
-    this.http.post(url, user)
-      .subscribe((result: any) => {
-        resolve(result.json())
+        return data.nome;
       },
       (error) => {
         reject(error.json());
@@ -98,13 +93,15 @@ export class UsersProvider {
   update(user: any){
     return new Promise((resolve, reject) => {
 
-      let url = this.API_URL + 'Consulta/aluno_login/' + user.id;
+      let url = this.API_URL + 'Consulta/aluno_login/' + user._id;
       let data = {
-        "first_name": user.first_name,
-        "last_name": user.last_name
+        "nome": user.nome,
+        "senha": user.senha,
+        "login": user.login
+
       }
 
-    this.http.put(url, user)
+    this.http.put(url, data)
       .subscribe((result: any) => {
         resolve(result.json())
       },

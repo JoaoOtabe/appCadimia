@@ -23,10 +23,16 @@ export class LoginPage {
   login() {
     this.userProvider.login(this.model.login, this.model.senha)
       .then((result: any) => {
-        this.toast.create({ message: 'Usuário logado com sucesso. Token: ' + result.token, position: 'botton', duration: 3000 }).present();
+        this.userProvider.getAluno(this.model.login)
+          .then((resulta: any) => {
+            this.toast.create({ message: 'Usuário logado com sucesso. Olá: ' + this.model.login, position: 'botton', duration: 6000 }).present();
+          })
+          .catch((error: any) => {
+            this.toast.create({ message: "Erro Na consulta do nome", position: 'botton', duration: 6000 }).present();
+          });
       })
       .catch((error: any) => {
-        this.toast.create({ message: 'Erro ao efetuar login. Erro: ' + error.error, position: 'botton', duration: 3000 }).present();
+        this.toast.create({ message: 'Erro ao efetuar login. ' + "Login ou Senha, Estão errados", position: 'botton', duration: 6000 }).present();
       });
   }
 
