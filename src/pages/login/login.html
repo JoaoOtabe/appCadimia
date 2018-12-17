@@ -1,9 +1,11 @@
 <ion-header>
   <ion-navbar>
+      <ion-title id="titleLogin">
+          Login
+      </ion-title>
       <ion-buttons left>
           <button ion-button icon-only (click) = "voltarHomePage()">
               <ion-icon name="arrow-back"></ion-icon>
-              Voltar
           </button>
       </ion-buttons>
   </ion-navbar>
@@ -15,23 +17,21 @@
   
 </div>
 
-<ion-list>
+<h6 id="frase">Veja seus treinos e como executá-los com a Ficha Virtual!</h6>
 
 
-  <ion-item>
-    <ion-label fixed>Login</ion-label>
-    <ion-input type="text" name="login" [(ngModel)] = "model.login"></ion-input>
+  <ion-item id="inputLoginUsername">
+    <ion-input type="text" name="login" [(ngModel)] = "model.login" placeholder="Login"></ion-input>
   </ion-item>
 
 
-  <ion-item>
-    <ion-label fixed>Senha</ion-label>
-    <ion-input type="text" name="senha" [(ngModel)] = "model.senha"></ion-input>
-</ion-item>
+  <ion-item id="inputLoginSenha">
+    <ion-input type="password" name="senha" [(ngModel)] = "model.senha" placeholder="Senha"></ion-input>
+  </ion-item>
 
-</ion-list>
 
-<button ion-button block (click) = "login()">Entrar</button>
+
+<button id="btnLoginEntrar" ion-button block (click) = "login()">Entrar</button>
 
 
 </ion-content>

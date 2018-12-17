@@ -1,32 +1,83 @@
 page-create-accont {
-    .logo{
+
+    #titleCadastro{
         text-align: center;
-        background-image: url("../../assets/imgs/logo.png");
+        margin-right: 4.59%;
+    }
+
+    #logo{
+
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+        background-image: url("../../assets/imgs/icon_academy.jpg");
         width:100%;
         height:100px;
-        background-size: 50px 50px;
+        background-size: 100px 100px;
         background-repeat: no-repeat;
         background-position: center;
     
     }
     
-    .frase{
+    #frase{
     
         text-align: center;
         padding-bottom: 10px;
     }
     
-    .esqueci{
-    
-        text-align: right;
-        color: rgb(45, 42, 189);
+    #btnCadastroEntrar{
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
     }
 
-    .scroll-content{
-        padding-bottom: 16px;
-        padding-top: 0px;
-        padding-left: 16px;
-        padding-right: 16px;
-        
+    #inputCadastroNome{
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+        width: 90%;
     }
+
+    #inputCadastroEmail{
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+        width: 90%;
+    }
+
+    #inputCadastroSenha{
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+        width: 90%;
+    }
+
+    #inputCadastroLogin{
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+        width: 90%;
+    }
+
+
+    #inputCadastroNome:hover{
+
+        cursor:text;
+    }
+
+    #inputCadastroEmail:hover{
+
+        cursor:text;
+    }
+
+    #inputCadastroSenha:hover{
+
+        cursor:text;
+    }
+
+    #inputCadastroLogin:hover{
+
+        cursor:text;
+    }
+
 }
