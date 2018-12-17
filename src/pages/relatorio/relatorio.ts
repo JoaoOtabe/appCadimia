@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HomePage } from '../home/home';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 
@@ -14,6 +15,10 @@ export class RelatorioPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RelatorioPage');
+  }
+
+  voltarHomePage(){
+    this.navCtrl.setRoot(HomePage);
   }
 
 }
