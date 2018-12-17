@@ -10,13 +10,15 @@ import { CreateAccontPage } from '../pages/create-accont/create-accont';
 import {LoginPage} from '../pages/login/login';
 import { UsersProvider } from '../providers/users/users';
 import { HttpModule } from "@angular/http";
+import { RelatorioPage } from '../pages/relatorio/relatorio';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     CreateAccontPage,
-    LoginPage
+    LoginPage,
+    RelatorioPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import { HttpModule } from "@angular/http";
     MyApp,
     HomePage,
     CreateAccontPage,
-    LoginPage
+    LoginPage,
+    RelatorioPage
   ],
   providers: [
     StatusBar,

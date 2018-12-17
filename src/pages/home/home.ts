@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import  { CreateAccontPage } from '../create-accont/create-accont';
 import  { LoginPage } from '../login/login';
+import  { RelatorioPage } from '../relatorio/relatorio'
 import { IonicPage, NavParams, ToastController } from 'ionic-angular';
 import { Http } from '@angular/http';
 
@@ -25,6 +26,10 @@ export class HomePage {
 
   pagecadastro():void{
     this.navCtrl.setRoot(CreateAccontPage);
+  }
+
+  pageRelatorio():void{
+    this.navCtrl.setRoot(RelatorioPage);
   }
 }
 
