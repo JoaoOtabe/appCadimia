@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Olá !!!
+    <ion-title id="titleHome">
+      Ficha Virtual
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -12,18 +12,18 @@
   
 </div>
 
-<h6 id="frase">Participe da maior e mais legal comunidade do Exercicios de Academia!</h6>
+<h6 id="frase">Acompanhe sua evolução e crie metas com a Ficha Virtual!</h6>
 
 
-<button ion-button block (click) = "pageLogin()">login</button>
+<button id="btnLogin" ion-button block (click) = "pageLogin()">login</button>
 
 <br>
-<button ion-button block color="secondary" (click) = "pagecadastro()">Cadastre-se</button>
+<button id="btnCadastro" ion-button block color="secondary" (click) = "pagecadastro()">Cadastre-se</button>
 
 
-<ion-item>
+<ion-item no-lines id="ckBox_Conectado">
   <ion-label>Manter conectado</ion-label>
-  <ion-checkbox color="blue" checked="true"></ion-checkbox>
+  <ion-checkbox color="blue" checked="false"></ion-checkbox>
 </ion-item>
   
  
