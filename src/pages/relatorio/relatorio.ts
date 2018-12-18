@@ -19,7 +19,7 @@ export class RelatorioPage {
 
   ionViewDidEnter() {
     this.users = [];
-    this.page = 1;
+    this.page = 0;
   }
 
   getAllAlunos (page:number){

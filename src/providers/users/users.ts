@@ -50,19 +50,18 @@ export class UsersProvider {
   }
 
   //parametro seria o numero da academia porem não possuimos este campo ainda
-  getAllAlunos(num : any){
+  getAllAlunos(page: number) {
     return new Promise((resolve, reject) => {
-
-      let url = this.API_URL + 'Consulta/aluno';
-
-    this.http.get(url)
-      .subscribe((result: any) => {
-       // console.log(result.json())
-        resolve(result.json())
-      },
-      (error) => {
-        reject(error.json());
-      })
+ 
+      let url = this.API_URL + 'Consulta/aluno/' + page;
+ 
+      this.http.get(url)
+        .subscribe((result: any) => {
+          resolve(result.json());
+        },
+        (error) => {
+          reject(error.json());
+        });
     });
   }
 
