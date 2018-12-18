@@ -50,7 +50,7 @@ export class UsersProvider {
   }
 
   //parametro seria o numero da academia porem não possuimos este campo ainda
-  getAllAlunos(){
+  getAllAlunos(num : any){
     return new Promise((resolve, reject) => {
 
       let url = this.API_URL + 'Consulta/aluno';
@@ -66,18 +66,18 @@ export class UsersProvider {
     });
   }
 
-  getAluno(usu: any){
+  getAluno(id: any){
     return new Promise((resolve, reject) => {
 
       //testar qual deve ser a consulta, pelo id ou pelo nome !!!
       var data = {
-        "nome": usu.nome,
-        "senha": usu.senha,
-        "login": usu.login
+        "nome": id.nome,
+        "senha": id.senha,
+        "login": id.login
 
       }
 
-      let url = this.API_URL + 'Consulta/aluno/' + usu.login;
+      let url = this.API_URL + 'Consulta/aluno/' + id.login;
 
     this.http.get(url)
       .subscribe((result: any) => {
@@ -111,10 +111,10 @@ export class UsersProvider {
     });
   }
 
-  remove(id: number){
+  remove(id: string){
     return new Promise((resolve, reject) => {
 
-      let url = this.API_URL + 'Consulta/aluno_login/' + id;
+      let url = this.API_URL + 'Delete/aluno';
 
     this.http.delete(url)
       .subscribe((result: any) => {

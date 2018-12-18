@@ -1,20 +1,39 @@
 <ion-header>
-
   <ion-navbar>
-    <ion-title>Relatorio</ion-title>
+    <ion-title>
+      Relatorio
+    </ion-title>
     <ion-buttons left>
       <button ion-button icon-only (click) = "voltarHomePage()">
           <ion-icon name="arrow-back"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
-
 </ion-header>
-
-
+ 
 <ion-content padding>
+ 
+  <ion-list>
+    <ion-item-sliding>
+      <ion-item (click) = "openAluno(user._id)">
+        <ion-avatar item-start>
+          <!--
+            <img src="{{user.foto_perfil}}">
+          -->
+        </ion-avatar>
+        <h2>{{user.nome}}</h2>
+      </ion-item>
 
-  <p>Olá</p> <!--Teste para ver o layout
-                 Pode ser excluído-->
-  
+      <ion-item-options side="left">
+        <button ion-button color="primary" (click)="openEditUser(user.id)">
+            <ion-icon name="create"></ion-icon>
+            Editar
+          </button>
+        <button ion-button color="danger" (click)="deleteUser(user)">
+            <ion-icon name="trash"></ion-icon>
+            Excluir
+          </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>
