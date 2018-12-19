@@ -9,6 +9,7 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
   selector: 'page-relatorio',
   templateUrl: 'relatorio.html',
 })
+
 export class RelatorioPage {
   users: any[];
   page: number;
@@ -20,18 +21,24 @@ export class RelatorioPage {
   ionViewDidEnter() {
     this.users = [];
     this.page = 1;
+
     this.getAllAluno(this.page);
   }
 
 
-  getAllAluno (page:number){
+  getAllAluno (page: number){
     this.userProvider.getAllAlunos(page)
       .then((result: any) => {
+        console.log(result)
         for (var i = 0; i < result.length; i++) {
           var user = result[i];
           this.users.push(user);
+          
+          
         }
-        //this.users = result.data;
+        console.log("teste");
+        console.log(this.users);
+        //data;
       })  
       .catch((error: any) => {
         this.toast.create({ message: 'Erro a o Listar os usuários'})
@@ -58,7 +65,7 @@ export class RelatorioPage {
   openCreateUser(){
     this.navCtrl.push('UserEditPage');
   }
-
+  
   openEditAluno(id: number){
     this.userProvider.getAluno(id)
       .then((result: any) => {

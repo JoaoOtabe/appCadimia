@@ -55,17 +55,17 @@ export class UsersProvider {
     return new Promise((resolve, reject) => {
  
       let url = this.API_URL + 'Consulta/aluno';
- 
+
       this.http.get(url)
         .subscribe((result: any) => {
-          console.log(result.json())
-          resolve(result.json());
+         // console.log(result.json())
+          resolve(result.json())
         },
         (error) => {
-          
-        });
-    });
-  }
+           reject(error.json());
+         })
+      });
+    }
 
   
   getAluno(id: any){
