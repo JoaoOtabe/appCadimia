@@ -58,7 +58,7 @@ export class UsersProvider {
  
       this.http.get(url)
         .subscribe((result: any) => {
-          // console.log(result.json())
+          console.log(result.json())
           resolve(result.json());
         },
         (error) => {
