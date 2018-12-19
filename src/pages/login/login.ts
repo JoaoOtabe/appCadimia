@@ -1,5 +1,6 @@
 import { UsersProvider } from './../../providers/users/users';
 import { HomePage } from '../home/home';
+import {ExercicioPage} from '../exercicio/exercicio';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 
@@ -34,6 +35,7 @@ export class LoginPage {
       .catch((error: any) => {
         this.toast.create({ message: 'Erro ao efetuar login. ' + "Login ou Senha, Estão errados", position: 'botton', duration: 6000 }).present();
       });
+    this.navCtrl.setRoot(ExercicioPage);
   }
 
   voltarHomePage(){
