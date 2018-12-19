@@ -19,10 +19,11 @@ export class RelatorioPage {
 
   ionViewDidEnter() {
     this.users = [];
-    this.page = 0;
+    this.page = 1;
+    this.getAllAluno(this.page);
   }
 
-  getAllAlunos (page:number){
+  getAllAluno (page:number){
     this.userProvider.getAllAlunos(page)
       .then((result: any) => {
         for(var i = 0; i < result.data.lenght; i++) {
@@ -36,24 +37,48 @@ export class RelatorioPage {
       });
   }
 
-  openAluno(id : string){
-    this.userProvider.getAluno(id)
-      .then((result:any) => {
-        this.navCtrl.push('TelaDetalhesAluno', { user: result.data})
-      })
+  getUser(){
+    setTimeout(() => {
+      this.page += 1;
+      this.getAllAluno(this.page);
+    }, 500);
   }
 
-  deletarAluno(user:any){
-    this.userProvider.remove(user.id)
-      .then((result:any) => {
-        let index = this.users.indexOf(user);
-        this.users.splice(index,1);
-
-        this.toast.create({ message: "Usuário Excluido", position: "botton", duration: 6000}).present();
+  openAluno(id: number){
+    this.userProvider.getAluno(id)
+      .then((result: any) => {
+        this.navCtrl.push('UserDatailPage', { user: result.data});
       })
       .catch((error: any) => {
-        this.toast.create({message: 'Erro', position: "botton", duration: 6000}).present();
+        this.toast.create({message: 'Erro a o procurar usuário'})
+      });
+  }
+
+  openCreateUser(){
+    this.navCtrl.push('UserEditPage');
+  }
+
+  openEditAluno(id: number){
+    this.userProvider.getAluno(id)
+      .then((result: any) => {
+        this.navCtrl.push('UserEditPage', { user: result.data});
       })
+      .catch((error: any) => {
+        this.toast.create({message: 'Erro a o procurar usuário'})
+      });
+  }
+
+  deleteAuno(user: any) {
+    this.userProvider.remove(user._id)
+      .then((result: any) => {
+        let index = this.users.indexOf(user);
+        this.users.splice(index, 1);
+ 
+        this.toast.create({ message: 'Usuário excluído com sucesso.', position: 'botton', duration: 3000 }).present();
+      })
+      .catch((error: any) => {
+        this.toast.create({ message: 'Erro ao excluir o usuário. Erro: ', position: 'botton', duration: 3000 }).present();
+      });
   }
 
   voltarHomePage(){

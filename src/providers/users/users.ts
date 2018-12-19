@@ -112,10 +112,12 @@ export class UsersProvider {
 
   remove(id: string){
     return new Promise((resolve, reject) => {
+      var data = {
+        id: id
+        };
 
-      let url = this.API_URL + 'Delete/aluno';
-
-    this.http.delete(url)
+      this.http.post(this.API_URL + 'Delete/aluno', data)
+      
       .subscribe((result: any) => {
         resolve(result.json())
       },
