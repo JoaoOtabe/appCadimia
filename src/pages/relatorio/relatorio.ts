@@ -23,11 +23,12 @@ export class RelatorioPage {
     this.getAllAluno(this.page);
   }
 
+
   getAllAluno (page:number){
     this.userProvider.getAllAlunos(page)
       .then((result: any) => {
-        for(var i = 0; i < result.data.lenght; i++) {
-          var user = result.data[i];
+        for (var i = 0; i < result.length; i++) {
+          var user = result[i];
           this.users.push(user);
         }
         //this.users = result.data;
