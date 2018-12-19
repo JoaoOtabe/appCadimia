@@ -76,7 +76,7 @@ export class RelatorioPage {
       });
   }
 
-  deleteAuno(user: any) {
+  deleteAluno(user: any) {
     this.userProvider.remove(user._id)
       .then((result: any) => {
         let index = this.users.indexOf(user);
