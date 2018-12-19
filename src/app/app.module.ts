@@ -11,6 +11,7 @@ import {LoginPage} from '../pages/login/login';
 import { UsersProvider } from '../providers/users/users';
 import { HttpModule } from "@angular/http";
 import { RelatorioPage } from '../pages/relatorio/relatorio';
+import {ExercicioPage} from '../pages/exercicio/exercicio'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RelatorioPage } from '../pages/relatorio/relatorio';
     HomePage,
     CreateAccontPage,
     LoginPage,
-    RelatorioPage
+    RelatorioPage,
+    ExercicioPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { RelatorioPage } from '../pages/relatorio/relatorio';
     HomePage,
     CreateAccontPage,
     LoginPage,
-    RelatorioPage
+    RelatorioPage,
+    ExercicioPage
   ],
   providers: [
     StatusBar,
